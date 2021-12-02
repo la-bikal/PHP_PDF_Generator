@@ -16,17 +16,18 @@
   
     $image_base64 = base64_decode($image_parts[1]);
     $fileName = uniqid() . '.jpg';
-  
-    // $file = $folderPath . $fileName;
-    // file_put_contents($file, $image_base64);
+  	
+    $file = $folderPath . $fileName;
+    file_put_contents($file, $image_base64);
 
     $pdf = new FPDF();
   
 	//Add a new page
 	$pdf->AddPage();	  
 
-	$pdf->Image($file, 80,10,50,50);
-	  
+	$pdf->Image($file, 60,10,100,140);
+	
+	$pdf -> Ln(10);  
 	// return the generated output
 
 	// Set the font for the text
@@ -36,6 +37,12 @@
 	$pdf->Cell(60,20, '', 0, 1);
 	$pdf->Cell(60,20, '', 0, 1);
 	$pdf->Cell(60,20, '', 0, 1);
+	$pdf->Cell(60,20, '', 0, 1);
+	$pdf->Cell(60,20, '', 0, 1);
+	$pdf->Cell(60,20, '', 0, 1);
+	$pdf->Cell(60,20, '', 0, 1);
+
+
 
 	$pdf->Cell(50,20, 'Name ', 1, 0, 'C');
 	$pdf->Cell(130,20, $name, 1, 1, 'C');
